@@ -167,6 +167,7 @@ func purchaseMyProduct(product: SKProduct) {
 }
     
     
+    
 // MARK:- IAP PAYMENT QUEUE
 func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
     for transaction:AnyObject in transactions {
