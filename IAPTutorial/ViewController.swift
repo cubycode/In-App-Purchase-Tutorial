@@ -83,10 +83,13 @@ override func viewDidLoad() {
 func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
     nonConsumablePurchaseMade = true
     UserDefaults.standard.set(nonConsumablePurchaseMade, forKey: "nonConsumablePurchaseMade")
-        
-    UIAlertView(title: "IAP Tutorial",
-    message: "You've successfully restored your purchase!",
-    delegate: nil, cancelButtonTitle: "OK").show()
+    
+    let alert = UIAlertController(title: "IAP Tutorial",
+      message: "You've successfully restored your purchase!",
+      preferredStyle: .alert)
+    let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in })
+    alert.addAction(ok)
+    present(alert, animated: true, completion: nil)
 }
  
 
@@ -161,9 +164,12 @@ func purchaseMyProduct(product: SKProduct) {
         
     // IAP Purchases dsabled on the Device
     } else {
-        UIAlertView(title: "IAP Tutorial",
-        message: "Purchases are disabled in your device!",
-        delegate: nil, cancelButtonTitle: "OK").show()
+        let alert = UIAlertController(title: "IAP Tutorial",
+          message: "Purchases are disabled in your device!",
+          preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in })
+        alert.addAction(ok)
+        present(alert, animated: true, completion: nil)
     }
 }
     
@@ -185,11 +191,14 @@ func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SK
                         coins += 10
                         UserDefaults.standard.set(coins, forKey: "coins")
                         coinsLabel.text = "COINS: \(coins)"
-                        
-                        UIAlertView(title: "IAP Tutorial",
-                        message: "You've successfully bought 10 extra coins!",
-                        delegate: nil,
-                        cancelButtonTitle: "OK").show()
+                    
+                        let alert = UIAlertController(title: "IAP Tutorial",
+                              message: "You've successfully bought 10 extra coins!",
+                              preferredStyle: .alert)
+                        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in })
+                        alert.addAction(ok)
+                        present(alert, animated: true, completion: nil)
+                    
                         
                         
                         
@@ -201,11 +210,14 @@ func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SK
                         UserDefaults.standard.set(nonConsumablePurchaseMade, forKey: "nonConsumablePurchaseMade")
                     
                         premiumLabel.text = "Premium version PURCHASED!"
-                        
-                        UIAlertView(title: "IAP Tutorial",
-                        message: "You've successfully unlocked the Premium version!",
-                        delegate: nil,
-                        cancelButtonTitle: "OK").show()
+                    
+                    
+                        let alert = UIAlertController(title: "IAP Tutorial",
+                              message: "You've successfully unlocked the Premium version!",
+                              preferredStyle: .alert)
+                        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in })
+                        alert.addAction(ok)
+                        present(alert, animated: true, completion: nil)
                     }
                     
                     break
