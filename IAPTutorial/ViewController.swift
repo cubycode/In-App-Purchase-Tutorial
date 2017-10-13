@@ -24,7 +24,7 @@ SKPaymentTransactionObserver
     
     /* Variables */
     let COINS_PRODUCT_ID = "com.iaptutorial.coins"
-    let PREMIUM_PRODUCT_ID = "com.iaptutorial.premium"
+    let PREMIUM_PRODUCT_ID = "com.iaptutorial.premium2"
     
     var productID = ""
     var productsRequest = SKProductsRequest()
@@ -79,6 +79,7 @@ override func viewDidLoad() {
     SKPaymentQueue.default().restoreCompletedTransactions()
 }
     
+
 func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
     nonConsumablePurchaseMade = true
     UserDefaults.standard.set(nonConsumablePurchaseMade, forKey: "nonConsumablePurchaseMade")
@@ -219,9 +220,13 @@ func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SK
                 default: break
     }}}
 }
+
     
-    
-   
+
+@available(iOS 11.0, *)
+func paymentQueue(_ queue: SKPaymentQueue, shouldAddStorePayment payment: SKPayment, for product: SKProduct) -> Bool {
+    return true
+}
     
     
     
